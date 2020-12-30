@@ -1,0 +1,152 @@
+import FuseUtils from '@fuse/utils';
+import AppContext from 'app/AppContext';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { matchRoutes } from 'react-router-config';
+import { withRouter } from 'react-router-dom';
+
+class FuseAuthorization extends Component {
+	constructor(props, context) {
+		super(props);
+		const { routes } = context;
+		this.state = {
+			accessGranted: true,
+			routes
+		};
+	}
+
+	componentDidMount() {
+		
+		if (!this.state.accessGranted) {
+		  this.redirectRoute()
+		}
+	  }
+	  componentDidUpdate() {
+		console.log("componentDidUpdate")
+		if (!this.state.accessGranted) {
+		  this.redirectRoute()
+		}
+	  }
+
+	shouldComponentUpdate(nextProps, nextState) {
+		return nextState.accessGranted !== this.state.accessGranted;
+	}
+
+	
+
+	static getDerivedStateFromProps(props, state) {
+
+		console.log("getDerivedStateFromProps")
+
+
+		const { location, userRole } = props;
+		const { pathname } = location;
+
+		const matched = matchRoutes(state.routes, pathname)[0];
+		console.log("matched",matched,userRole)
+
+		const isTokenAvialable = FuseUtils.hasPermission(matched.route.auth, userRole)
+		  ? localStorage.getItem("user-token")
+			? false
+			: true
+		  : false
+		  
+		  console.log("isTokenAvialable",FuseUtils.hasPermission(matched.route.auth, userRole),isTokenAvialable)
+		if (
+		  (matched && matched.route.isAuth && isTokenAvialable) ||
+		  (matched &&
+			!matched.route.isAuth &&
+			!isTokenAvialable)
+		) {
+		  return {
+			accessGranted: false
+		  }
+		} else {
+		  return {
+			accessGranted: matched
+			  ? FuseUtils.hasPermission(matched.route.auth, userRole)
+			  : true
+		  }
+		}
+	  }
+	
+
+	redirectRoute() {
+
+		console.log("redirectRoute")
+
+
+// 		const { location, userRole, history } = this.props;
+// 		const { pathname, state } = location;
+// 		const redirectUrl = state && state.redirectUrl ? state.redirectUrl : '/';
+// console.log("redirectRoute",userRole,redirectUrl)
+// 		/*
+//         User is guest
+//         Redirect to Login Page
+//         */
+// 		if (!userRole || userRole.length === 0) {
+// 			history.push({
+// 				pathname: '/login',
+// 				state: { redirectUrl: pathname }
+// 			});
+// 		} else {
+// 			/*
+//         User is member
+//         User must be on unAuthorized page or just logged in
+//         Redirect to dashboard or redirectUrl
+//         */
+// 			history.push({
+// 				pathname: redirectUrl
+// 			});
+// 		}
+
+		const { location, history, userDetails } = this.props
+    const { pathname, state } = location
+    const matched = matchRoutes(this.state.routes, pathname)[0]
+    const redirectUrl =
+      state && state.redirectUrl && userDetails ? state.redirectUrl : pathname
+    if (matched) {
+      if (matched.route.isAuth && !localStorage.getItem("user-token")) {
+        history.push({
+          pathname: "/login"
+        })
+      }
+      //add first line conditions for email verify route
+      if (
+        // matched.route.path !== "/verify/email" &&
+        !matched.route.isAuth &&
+        localStorage.getItem("user-token")
+      ) {
+        history.push({
+          pathname: "/dashboard"
+        })
+      }
+    } else {
+      history.push({
+        pathname: redirectUrl
+      })
+    }
+	}
+
+	render() {
+		console.log("this.state.accessGranted",this.state.accessGranted)
+		// console.info('Fuse Authorization rendered', accessGranted);
+		return this.state.accessGranted ? <>{this.props.children}</> : null;
+	}
+}
+
+function mapStateToProps({ auth }) {
+	console.log("auth",auth)
+	return {
+		userRole:["admin"] ,
+		userDetails:auth.auth.user 
+	};
+}
+
+FuseAuthorization.contextType = AppContext;
+
+export default withRouter(connect(mapStateToProps)(FuseAuthorization));
+
+
+
+ 
