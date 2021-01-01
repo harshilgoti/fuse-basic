@@ -17,56 +17,55 @@ const navigationConfig = [
 		icon: 'apps',
 		children: [
 			{
-				id: "dashboard",
-				title: "Dashboard",
-				translate: "Dashboard",
-				icon: "dashboard",
-				type: "item",
-				url: "/dashboard"
-			  },
-			   {
-				id: "categorys",
-				title: "Categorys",
-				translate: "Categorys",
-				icon: "language",
-				type: "item",
-				url: "/categories"
-			  },
-			  {
-				id: "pincodes",
-				title: "Pincodes",
-				translate: "Pincodes",
-				icon: "language",
-				type: "item",
-				url: "/pincodes"
-			  },
-			  {
-				id: "areas",
-				title: "Areas",
-				translate: "Areas",
-				icon: "language",
-				type: "item",
-				url: "/areas"
-			  },
-			  {
-				id: "tags",
-				title: "Tags",
-				translate: "Tags",
-				icon: "language",
-				type: "item",
-				url: "/tags"
-			  },
-			  {
-				id: "ads",
-				title: "Ads",
-				translate: "Ads",
-				icon: "language",
-				type: "item",
-				url: "/ads"
-			  }
-					]
-		},
-		
+				id: 'dashboard',
+				title: 'Dashboard',
+				translate: 'Dashboard',
+				icon: 'dashboard',
+				type: 'item',
+				url: '/dashboard'
+			},
+			{
+				id: 'categorys',
+				title: 'Categorys',
+				translate: 'Categorys',
+				icon: 'language',
+				type: 'item',
+				url: '/categories'
+			},
+			{
+				id: 'pincodes',
+				title: 'Pincodes',
+				translate: 'Pincodes',
+				icon: 'language',
+				type: 'item',
+				url: '/pincodes'
+			},
+			{
+				id: 'areas',
+				title: 'Areas',
+				translate: 'Areas',
+				icon: 'language',
+				type: 'item',
+				url: '/areas'
+			},
+			{
+				id: 'tags',
+				title: 'Tags',
+				translate: 'Tags',
+				icon: 'language',
+				type: 'item',
+				url: '/tags'
+			},
+			{
+				id: 'ads',
+				title: 'Ads',
+				translate: 'Ads',
+				icon: 'language',
+				type: 'item',
+				url: '/ads'
+			}
+		]
+	}
 ];
 
 export default navigationConfig;
