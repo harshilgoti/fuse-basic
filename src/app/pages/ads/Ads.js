@@ -24,7 +24,6 @@ function Ads() {
 	function handleSearchText(value) {
 		setSearchText(value);
 	}
-
 	return (
 		<React.Fragment>
 			<FusePageCarded
