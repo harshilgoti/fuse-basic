@@ -16,6 +16,7 @@ const options = [
 	{ value: 'strawberry', label: 'Strawberry' },
 	{ value: 'vanilla', label: 'Vanilla' }
 ];
+
 function AreasDialog(props) {
 	// const dispatch = useDispatch();
 	const {
@@ -48,7 +49,7 @@ function AreasDialog(props) {
 	// 	}
 	// }, [props.area, isEditMode, fetchAreasList]); // eslint-disable-line
 	function canBeSubmitted() {
-		return true;
+		return values.selectedOption.length;
 	}
 	// function handleAddLanguageSuccess() {
 	// 	props.close();
@@ -134,6 +135,7 @@ function AreasDialog(props) {
 					onChange={handleMultiChange}
 					isMulti
 				/>
+
 				<ImageUpload
 					className="mb-16"
 					// handleImageId={handleImageId}
@@ -142,7 +144,7 @@ function AreasDialog(props) {
 					// admin={(admin && admin) || {}}
 				/>
 				{/* <GoogleMap handleLocation={handleLocation} lat={lat} lng={lng} /> */}
-				<div className="flex justify-end align-center">
+				<div className="flex justify-end align-center w-full">
 					<Button
 						className="mr-8"
 						variant="outlined"
