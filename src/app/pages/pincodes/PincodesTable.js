@@ -11,9 +11,9 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FuseAnimate from '@fuse/core/FuseAnimate/FuseAnimate';
-import ProductsTableHead from './PincodesTableHead';
+import PincodesTableHead from './PincodesTableHead';
 
-function AreasTable(props) {
+function PincodesTable(props) {
 	const dispatch = useDispatch();
 
 	const [loading, setLoading] = useState(true);
@@ -75,7 +75,7 @@ function AreasTable(props) {
 		<div className="w-full flex flex-col">
 			<FuseScrollbars className="flex-grow overflow-x-auto">
 				<Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
-					<ProductsTableHead order={order} onRequestSort={handleRequestSort} rowCount={data.length} />
+					<PincodesTableHead order={order} onRequestSort={handleRequestSort} rowCount={data.length} />
 
 					<TableBody>
 						{_.orderBy(
@@ -161,4 +161,4 @@ function AreasTable(props) {
 	);
 }
 
-export default withRouter(AreasTable);
+export default withRouter(PincodesTable);

@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FuseAnimate from '@fuse/core/FuseAnimate/FuseAnimate';
-import ProductsTableHead from './AreasTableHead';
+import AreasTableHead from './AreasTableHead';
 
 function AreasTable(props) {
 	const dispatch = useDispatch();
@@ -75,7 +75,7 @@ function AreasTable(props) {
 		<div className="w-full flex flex-col">
 			<FuseScrollbars className="flex-grow overflow-x-auto">
 				<Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
-					<ProductsTableHead order={order} onRequestSort={handleRequestSort} rowCount={data.length} />
+					<AreasTableHead order={order} onRequestSort={handleRequestSort} rowCount={data.length} />
 
 					<TableBody>
 						{_.orderBy(

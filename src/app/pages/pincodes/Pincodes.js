@@ -1,8 +1,8 @@
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import React, { useState } from 'react';
-import AreasHeader from './PincodesHeader';
-import AreasTable from './PincodesTable';
-import AreasDialog from './PincodesDialog';
+import PincodesHeader from './PincodesHeader';
+import PincodesTable from './PincodesTable';
+import PincodesDialog from './PincodesDialog';
 
 function Pincodes() {
 	const [isOpenPincodeDialog, setOpenPincodeDialog] = useState(false);
@@ -33,12 +33,12 @@ function Pincodes() {
 					contentCard: 'overflow-hidden',
 					header: 'min-h-72 h-72 sm:h-136 sm:min-h-136'
 				}}
-				header={<AreasHeader isOpenPincodeDialog={handleOpenAreaDialog} searchText={handleSearchText} />}
-				content={<AreasTable currentPincode={handleCurrentPincode} searchText={searchText} />}
+				header={<PincodesHeader isOpenPincodeDialog={handleOpenAreaDialog} searchText={handleSearchText} />}
+				content={<PincodesTable currentPincode={handleCurrentPincode} searchText={searchText} />}
 				innerScroll
 			/>
 			{isOpenPincodeDialog && (
-				<AreasDialog open={isOpenPincodeDialog} close={handleClosePincodeDialog} pincode={currentPincode} />
+				<PincodesDialog open={isOpenPincodeDialog} close={handleClosePincodeDialog} pincode={currentPincode} />
 			)}
 		</React.Fragment>
 	);

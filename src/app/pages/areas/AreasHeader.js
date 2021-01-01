@@ -10,7 +10,7 @@ import {
 	useSelector
 } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
-function ProductsHeader({ isOpenAreaDialog }) {
+function AreasHeader({ isOpenAreaDialog }) {
 	const mainTheme = useSelector(selectMainTheme);
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
@@ -48,4 +48,4 @@ function ProductsHeader({ isOpenAreaDialog }) {
 		</div>
 	);
 }
-export default ProductsHeader;
+export default AreasHeader;

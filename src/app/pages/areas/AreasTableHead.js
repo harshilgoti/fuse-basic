@@ -50,7 +50,7 @@ const rows = [
 	}
 ];
 
-function ProductsTableHead(props) {
+function AreasTableHead(props) {
 	const createSortHandler = property => event => {
 		props.onRequestSort(event, property);
 	};
@@ -90,4 +90,4 @@ function ProductsTableHead(props) {
 	);
 }
 
-export default ProductsTableHead;
+export default AreasTableHead;

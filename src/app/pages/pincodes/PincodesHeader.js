@@ -10,7 +10,7 @@ import {
 	useSelector
 } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
-function ProductsHeader({ isOpenAreaDialog }) {
+function PincodesHeader({ isOpenPincodeDialog }) {
 	const mainTheme = useSelector(selectMainTheme);
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
@@ -39,13 +39,13 @@ function ProductsHeader({ isOpenAreaDialog }) {
 					className="whitespace-nowrap normal-case"
 					variant="contained"
 					color="secondary"
-					onClick={() => isOpenAreaDialog(true)}
+					onClick={() => isOpenPincodeDialog(true)}
 				>
-					<span className="hidden sm:flex">Add New Area</span>
+					<span className="hidden sm:flex">Add New Pincode</span>
 					<span className="flex sm:hidden">New</span>
 				</Button>
 			</FuseAnimate>
 		</div>
 	);
 }
-export default ProductsHeader;
+export default PincodesHeader;
