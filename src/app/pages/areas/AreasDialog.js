@@ -37,7 +37,7 @@ function AreasDialog(props) {
 		name: '',
 		reactSelect: []
 	};
-	const { register, handleSubmit, setValue } = useForm({ defaultValues });
+	const { register, handleSubmit, setValue, errors } = useForm({ defaultValues });
 	// useEffect(() => {
 	// 	//dispatch(uploadImageUrlHandling());
 	// 	Object.keys(props.area).length ? setEditMode(true) : setEditMode(false);
@@ -115,18 +115,19 @@ function AreasDialog(props) {
 					autoFocus
 					id="name"
 					name="name"
-					inputRef={register}
+					inputRef={register({
+						required: true
+					})}
+					error={errors.name && errors.name.type === 'required'}
+					helperText={errors.name && errors.name.type === 'required' && 'Please Enter Name'}
 					// onChange={handleChange}
 					variant="outlined"
-					required
 					fullWidth
 					size="small"
 				/>
 				<FuseChipSelect
 					className="w-full mb-16"
 					placeholder="Select multiple pincode*"
-					inputRef={register}
-					name="reactSelect"
 					textFieldProps={{
 						variant: 'outlined'
 					}}
