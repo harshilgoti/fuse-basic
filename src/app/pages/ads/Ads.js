@@ -5,21 +5,21 @@ import AdsTable from './AdsTable';
 import AdsDialog from './AdsDialog';
 
 function Ads() {
-	const [isOpenTagDialog, setOpenTagDialog] = useState(false);
-	const [currentTag, setCurrentLanguage] = useState({});
+	const [isOpenAdsDialog, setOpenAdsDialog] = useState(false);
+	const [currentAds, setCurrentLanguage] = useState({});
 	const [searchText, setSearchText] = useState('');
 
-	function handleOpenTagDialog() {
-		setOpenTagDialog(true);
+	function handleOpenAdsDialog() {
+		setOpenAdsDialog(true);
 		setCurrentLanguage({});
 	}
 
-	function handleCloseTagDialog() {
-		setOpenTagDialog(false);
+	function handleCloseAdsDialog() {
+		setOpenAdsDialog(false);
 	}
-	function handleCurrentTag(tag) {
-		setCurrentLanguage(tag);
-		setOpenTagDialog(true);
+	function handleCurrentAds(ads) {
+		setCurrentLanguage(ads);
+		setOpenAdsDialog(true);
 	}
 	function handleSearchText(value) {
 		setSearchText(value);
@@ -33,11 +33,11 @@ function Ads() {
 					contentCard: 'overflow-hidden',
 					header: 'min-h-72 h-72 sm:h-136 sm:min-h-136'
 				}}
-				header={<AdsHeader isOpenTagDialog={handleOpenTagDialog} searchText={handleSearchText} />}
-				content={<AdsTable currentTag={handleCurrentTag} searchText={searchText} />}
+				header={<AdsHeader isOpenAdsDialog={handleOpenAdsDialog} searchText={handleSearchText} />}
+				content={<AdsTable currentAds={handleCurrentAds} searchText={searchText} />}
 				innerScroll
 			/>
-			{isOpenTagDialog && <AdsDialog open={isOpenTagDialog} close={handleCloseTagDialog} tag={currentTag} />}
+			{isOpenAdsDialog && <AdsDialog open={isOpenAdsDialog} close={handleCloseAdsDialog} tag={currentAds} />}
 		</React.Fragment>
 	);
 }
