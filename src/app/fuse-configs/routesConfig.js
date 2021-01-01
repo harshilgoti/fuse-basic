@@ -3,7 +3,7 @@ import LoginConfig from 'app/pages/login/LoginConfig';
 import AreasConfig from 'app/pages/areas/AreasConfig';
 // import CategorysConfig from 'app/pages/category/CategorysConfig';
 import PincodesConfig from 'app/pages/pincodes/PincodesConfig';
-// import AdsConfig from 'app/pages/ads/AdsConfig';
+import AdsConfig from 'app/pages/ads/AdsConfig';
 import TagsConfig from 'app/pages/tags/TagsConfig';
 import AnalyticsDashboardAppConfig from 'app/pages/dashboard/analytics/AnalyticsDashboardAppConfig';
 import React from 'react';
@@ -14,7 +14,7 @@ const routeConfigs = [
 	AreasConfig,
 	// CategorysConfig,
 	PincodesConfig,
-	// AdsConfig,
+	AdsConfig,
 	TagsConfig,
 	AnalyticsDashboardAppConfig
 ];
