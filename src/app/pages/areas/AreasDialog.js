@@ -99,7 +99,7 @@ function AreasDialog(props) {
 			open={props.open}
 			onClose={props.close}
 			fullWidth
-			maxWidth="sm"
+			maxWidth="xs"
 		>
 			<AppBar position="static" elevation={1}>
 				<Toolbar className="flex w-full">
