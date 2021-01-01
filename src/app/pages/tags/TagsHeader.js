@@ -10,7 +10,7 @@ import {
 	useSelector
 } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
-function TagsHeader({ isOpenAreaDialog }) {
+function TagsHeader({ isOpenTagDialog }) {
 	const mainTheme = useSelector(selectMainTheme);
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
@@ -39,9 +39,9 @@ function TagsHeader({ isOpenAreaDialog }) {
 					className="whitespace-nowrap normal-case"
 					variant="contained"
 					color="secondary"
-					onClick={() => isOpenAreaDialog(true)}
+					onClick={() => isOpenTagDialog(true)}
 				>
-					<span className="hidden sm:flex">Add New Area</span>
+					<span className="hidden sm:flex">Add New Tag</span>
 					<span className="flex sm:hidden">New</span>
 				</Button>
 			</FuseAnimate>
