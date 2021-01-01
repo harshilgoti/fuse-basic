@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FuseAnimate from '@fuse/core/FuseAnimate/FuseAnimate';
-import ProductsTableHead from './AreasTableHead';
+import ProductsTableHead from './PincodesTableHead';
 
 function AreasTable(props) {
 	const dispatch = useDispatch();
@@ -83,8 +83,8 @@ function AreasTable(props) {
 							[
 								o => {
 									switch (order.id) {
-										case 'categories': {
-											return o.categories[0];
+										case 'name': {
+											return o.name;
 										}
 										default: {
 											return o[order.id];

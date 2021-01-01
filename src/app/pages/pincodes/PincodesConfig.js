@@ -1,7 +1,7 @@
 import React from 'react';
 import { authRoles } from 'app/auth';
 
-const AreasConfig = {
+const PincodesConfig = {
 	settings: {
 		layout: {
 			config: {}
@@ -10,11 +10,11 @@ const AreasConfig = {
 	auth: authRoles.admin,
 	routes: [
 		{
-			path: '/areas',
-			component: React.lazy(() => import('./Areas')),
+			path: '/pincodes',
+			component: React.lazy(() => import('./Pincodes')),
 			isAuth: true
 		}
 	]
 };
 
-export default AreasConfig;
+export default PincodesConfig;
