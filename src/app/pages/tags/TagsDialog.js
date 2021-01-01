@@ -17,7 +17,7 @@ const options = [
 	{ value: 'vanilla', label: 'Vanilla' }
 ];
 
-function AreasDialog(props) {
+function TagsDialog(props) {
 	// const dispatch = useDispatch();
 	const {
 		addAreasLoading,
@@ -177,4 +177,4 @@ function AreasDialog(props) {
 		</Dialog>
 	);
 }
-export default AreasDialog;
+export default TagsDialog;
