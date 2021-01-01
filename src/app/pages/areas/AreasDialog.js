@@ -108,6 +108,7 @@ function AreasDialog(props) {
 					fullWidth
 					size="small"
 				/>
+
 				<TextField
 					className="mb-16" // w-full md:w-1/2 ml-0 md:ml-8
 					label="Pincord"
@@ -120,6 +121,7 @@ function AreasDialog(props) {
 					fullWidth
 					size="small"
 				/>
+
 				<ImageUpload
 					className="mb-16"
 					// handleImageId={handleImageId}
