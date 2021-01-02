@@ -83,7 +83,7 @@ function ImageUpload(props) {
 
 	function handleClearImageUrl() {
 		setImageFileURL('');
-		props.handleClearImageId(props.position, props.index);
+		//props.handleClearImageId(props.position, props.index);
 	}
 
 	const handleInputIconClick = () => {

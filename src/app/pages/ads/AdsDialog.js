@@ -12,6 +12,7 @@ import {
 // import GoogleMap from '../../components/GeneralMap';
 import { useForm } from 'react-hook-form';
 import { makeStyles } from '@material-ui/core/styles';
+import ImageUpload from '../../components/ImageUpload';
 
 const useStyles = makeStyles(theme => ({
 	columnLeft: {
@@ -148,14 +149,14 @@ function AdsDialog(props) {
 				/>
 				<TextField
 					className={classes.columnLeft} // w-full md:w-1/2 ml-0 md:ml-8
-					label="Image URL"
-					id="image_url"
-					name="image_url"
+					label="code"
+					id="code"
+					name="code"
 					inputRef={register({
 						required: true
 					})}
-					error={errors.image_url && errors.image_url.type === 'required'}
-					helperText={errors.image_url && errors.image_url.type === 'required' && 'Please Enter Image URL'}
+					error={errors.code && errors.code.type === 'required'}
+					helperText={errors.code && errors.code.type === 'required' && 'Please Enter code'}
 					variant="outlined"
 					fullWidth
 					size="small"
@@ -210,19 +211,12 @@ function AdsDialog(props) {
 					fullWidth
 					size="small"
 				/>
-				<TextField
-					className="w-full mb-16" // w-full md:w-1/2 ml-0 md:ml-8
-					label="code"
-					id="code"
-					name="code"
-					inputRef={register({
-						required: true
-					})}
-					error={errors.code && errors.code.type === 'required'}
-					helperText={errors.code && errors.code.type === 'required' && 'Please Enter code'}
-					variant="outlined"
-					fullWidth
-					size="small"
+				<ImageUpload
+					className="mb-16"
+					// handleImageId={handleImageId}
+					// handleClearImageId={handleClearImageId}
+					// position="spouseData"
+					// admin={(admin && admin) || {}}
 				/>
 
 				<div className="flex justify-end align-center w-full">
