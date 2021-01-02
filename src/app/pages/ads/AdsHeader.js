@@ -10,7 +10,7 @@ import {
 	useSelector
 } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
-function AdsHeader({ isOpenTagDialog }) {
+function AdsHeader({ isOpenAdsDialog }) {
 	const mainTheme = useSelector(selectMainTheme);
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
@@ -39,7 +39,7 @@ function AdsHeader({ isOpenTagDialog }) {
 					className="whitespace-nowrap normal-case"
 					variant="contained"
 					color="secondary"
-					onClick={() => isOpenTagDialog(true)}
+					onClick={() => isOpenAdsDialog(true)}
 				>
 					<span className="hidden sm:flex">Add New Ads</span>
 					<span className="flex sm:hidden">New</span>
