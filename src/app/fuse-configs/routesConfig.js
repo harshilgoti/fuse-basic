@@ -1,7 +1,7 @@
 import FuseUtils from '@fuse/utils';
 import LoginConfig from 'app/pages/login/LoginConfig';
 import AreasConfig from 'app/pages/areas/AreasConfig';
-// import CategorysConfig from 'app/pages/category/CategorysConfig';
+import CategoriesConfig from 'app/pages/categories/CategoriesConfig';
 import PincodesConfig from 'app/pages/pincodes/PincodesConfig';
 import AdsConfig from 'app/pages/ads/AdsConfig';
 import TagsConfig from 'app/pages/tags/TagsConfig';
@@ -12,7 +12,7 @@ import { Redirect } from 'react-router-dom';
 const routeConfigs = [
 	LoginConfig,
 	AreasConfig,
-	// CategorysConfig,
+	CategoriesConfig,
 	PincodesConfig,
 	AdsConfig,
 	TagsConfig,

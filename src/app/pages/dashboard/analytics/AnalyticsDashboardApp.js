@@ -28,10 +28,6 @@ function AnalyticsDashboardApp() {
 		return null;
 	}
 
-	if(!true){
-		throw new Error("message");
-	}
-
 	return (
 		<div className="w-full">
 			<Widget1 data={widgets.widget1} />
