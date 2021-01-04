@@ -5,47 +5,37 @@ import { userLogin, authClearError } from '../../auth/store/loginSlice';
 import { TextField, InputAdornment, IconButton, Icon, Button, CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import history from '@history';
-
 const useStyles = makeStyles(theme => ({
 	error: {
 		textAlign: 'center',
 		color: 'red'
 	}
 }));
-
-function JWTLoginTab(props) {
+function LoginContent(props) {
 	const dispatch = useDispatch();
 	const classes = useStyles();
 	const { loading, error } = useSelector(({ auth }) => auth.auth);
-
 	const [showPassword, setShowPassword] = useState(false);
-
 	useEffect(() => {
 		dispatch(authClearError());
 	}, []); // eslint-disable-line
-
 	const { register, handleSubmit, errors } = useForm({
 		mode: 'onBlur',
 		reValidateMode: 'onChange',
 		shouldFocusError: true
 	});
-
 	function handleLoginSuccess() {
-		history.push('/dashboard');
+		history.push('/areas');
 	}
-
 	function onSubmit(data) {
 		dispatch(authClearError());
 		const { email, password } = data;
 		const body = {
 			email,
-			password,
-			type: 'normal',
-			platform: 'mobile'
+			password
 		};
 		dispatch(userLogin(body, handleLoginSuccess));
 	}
-
 	return (
 		<div className="w-full">
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -78,7 +68,6 @@ function JWTLoginTab(props) {
 						}}
 						variant="outlined"
 					/>
-
 					<TextField
 						className="mb-16"
 						type="password"
@@ -110,9 +99,7 @@ function JWTLoginTab(props) {
 						}}
 						variant="outlined"
 					/>
-
 					{error && <div className={classes.error}>{error}</div>}
-
 					<Button
 						type="submit"
 						variant="contained"
@@ -128,5 +115,4 @@ function JWTLoginTab(props) {
 		</div>
 	);
 }
-
-export default JWTLoginTab;
+export default LoginContent;

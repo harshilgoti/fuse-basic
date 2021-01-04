@@ -17,12 +17,12 @@ const navigationConfig = [
 		icon: 'apps',
 		children: [
 			{
-				id: 'dashboard',
-				title: 'Dashboard',
-				translate: 'Dashboard',
-				icon: 'dashboard',
+				id: 'areas',
+				title: 'Areas',
+				translate: 'Areas',
+				icon: 'language',
 				type: 'item',
-				url: '/dashboard'
+				url: '/areas'
 			},
 			{
 				id: 'categorys',
@@ -39,14 +39,6 @@ const navigationConfig = [
 				icon: 'language',
 				type: 'item',
 				url: '/pincodes'
-			},
-			{
-				id: 'areas',
-				title: 'Areas',
-				translate: 'Areas',
-				icon: 'language',
-				type: 'item',
-				url: '/areas'
 			},
 			{
 				id: 'tags',

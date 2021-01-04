@@ -5,19 +5,10 @@ import CategoriesConfig from 'app/pages/categories/CategoriesConfig';
 import PincodesConfig from 'app/pages/pincodes/PincodesConfig';
 import AdsConfig from 'app/pages/ads/AdsConfig';
 import TagsConfig from 'app/pages/tags/TagsConfig';
-import AnalyticsDashboardAppConfig from 'app/pages/dashboard/analytics/AnalyticsDashboardAppConfig';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const routeConfigs = [
-	LoginConfig,
-	AreasConfig,
-	CategoriesConfig,
-	PincodesConfig,
-	AdsConfig,
-	TagsConfig,
-	AnalyticsDashboardAppConfig
-];
+const routeConfigs = [LoginConfig, AreasConfig, CategoriesConfig, PincodesConfig, AdsConfig, TagsConfig];
 
 const routes = [
 	// if you want to make whole app auth protected by default change defaultAuth for example:

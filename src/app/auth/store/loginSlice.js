@@ -1,70 +1,68 @@
 import { createSlice } from '@reduxjs/toolkit';
-import axios from "../../../config/axios"
-
+import axios from '../../../config/axios';
 
 const initialState = {
-	loading:false,
-	user:null,
-	error:""
+	loading: false,
+	user: null,
+	error: ''
 };
 
 const loginSlice = createSlice({
 	name: 'auth/login',
 	initialState,
 	reducers: {
-		login:(state, action) => {
-			console.log("pay",action.payload)
-			return{
+		login: (state, action) => {
+			console.log('pay', action.payload);
+			return {
 				...state,
-				loading:true
-			}
+				loading: true
+			};
 		},
 		loginSuccess: (state, action) => {
-			console.log("pay1",action.payload)
-			return{
+			console.log('pay1', action.payload);
+			return {
 				...state,
-				loading:false,
-				user:action.payload
-			}
+				loading: false,
+				user: action.payload
+			};
 		},
 		loginError: (state, action) => {
-			console.log("pay2",action.payload)
-			
-			return{
+			console.log('pay2', action.payload);
+
+			return {
 				...state,
-				loading:false,
-				error:action.payload
-			}
+				loading: false,
+				error: action.payload
+			};
 		},
 		authClearError: (state, action) => {
-			return{
+			return {
 				...state,
-				error:""
-			}
+				error: ''
+			};
 		}
 	},
 	extraReducers: {}
 });
 
- export const userLogin = (body,handleLoginSuccess) => async dispatch => {
-	dispatch(login())
+export const userLogin = (body, handleLoginSuccess) => async dispatch => {
+	dispatch(login());
 
-	        await axios.post('/v1/login',body)
-				.then((response) =>{
-					console.log("response",response)
-					if (!response.data.error) {
-						dispatch(loginSuccess(response.data.data))
-						localStorage.setItem("user-token",response.data.data.token)
-						handleLoginSuccess && handleLoginSuccess()
-					  } else {
-						dispatch(loginError(response.data.msg));
-					  }
-					
-				})
-				.catch((error)=>dispatch(loginError(error.toString())))
-	   
-	}
+	await axios
+		.post('/api/v1/login', body)
+		.then(response => {
+			console.log('response', response);
+			if (!response.data.error) {
+				dispatch(loginSuccess(response.data.data));
+				localStorage.setItem('user-token', response.data.data.token);
+				handleLoginSuccess && handleLoginSuccess();
+			} else {
+				dispatch(loginError(response.data.msg));
+			}
+		})
+		.catch(error => dispatch(loginError(error.toString())));
+};
 
-export const { loginSuccess, loginError,login,authClearError } = loginSlice.actions;
+export const { loginSuccess, loginError, login, authClearError } = loginSlice.actions;
 
 export default loginSlice.reducer;
